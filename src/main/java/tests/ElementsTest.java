@@ -1,5 +1,6 @@
 package tests;
 
+import actions.Actions;
 import actions.HomeActions;
 import actions.ElementsActions;
 import pom.ElementsPO;
@@ -11,16 +12,18 @@ import support.BaseTest;
 
 import java.io.IOException;
 
-public class FirstTest extends BaseTest {
+public class ElementsTest extends BaseTest {
+    private Actions actions;
     private HomeActions homeActions;
     private ElementsActions elementsActions;
 
     @BeforeEach
     public void setUp() throws IOException {
         super.setUp();
+        actions = new Actions(driver);
         homeActions = new HomeActions(driver);
         elementsActions = new ElementsActions(driver);
-        homeActions.navigateToDemoQAHome();
+        actions.navigateToDemoQAHome();
         homeActions.clickElementsButton();
     }
 

@@ -7,11 +7,11 @@ import pom.ElementsPO;
 
 public class ElementsActions {
     private WebDriver driver;
-    private Actions actions;
+    private Actions seleniumActions;
 
     public ElementsActions(WebDriver driver) {
         this.driver = driver;
-        this.actions = new Actions(driver);
+        this.seleniumActions = new Actions(driver);
     }
 
     public void clickTextBoxButton() {
@@ -42,12 +42,12 @@ public class ElementsActions {
 
     public void clickDoubleClickButton() {
         WebElement button = driver.findElement(ElementsPO.doubleClickMeButton);
-        actions.doubleClick(button).perform();
+        seleniumActions.doubleClick(button).perform();
     }
 
     public void clickRightClickButton() {
         WebElement button = driver.findElement(ElementsPO.rightClickMeButton);
-        actions.contextClick(button).perform();
+        seleniumActions.contextClick(button).perform();
     }
 
     public void clickClickButton() {

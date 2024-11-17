@@ -1,5 +1,6 @@
 package pom;
 
+import enums.ElementType;
 import org.openqa.selenium.By;
 import utils.LocatorUtils;
 
@@ -12,9 +13,17 @@ public class FormsPO {
 
     public static final By emailInput = LocatorUtils.getInputByPlaceholder("name@example.com");
 
-    public static By genderMaleCheckbox = LocatorUtils.getElementByLabelAndType("Male", "checkbox");
+    public static final By genderMaleCheckbox = LocatorUtils.getElementByText("Male");
 
-    public static By genderFemaleCheckbox = LocatorUtils.getElementByLabelAndType("Female", "checkbox");
+    public static final By mobileNumberInput = LocatorUtils.getInputByPlaceholder("Mobile Number");
 
-    public static By genderOtherCheckbox = LocatorUtils.getElementByLabelAndType("Other", "checkbox");
+    public static final By currentAddressTextArea = LocatorUtils.getElementByLabelAndType("Current Address", ElementType.TEXTAREA);
+
+    public static final By stateSelect = LocatorUtils.getElementByLabelAndType("State and City", ElementType.DIV);
+
+    public static final By ncrStateSelectOption = LocatorUtils.getElementByText("NCR");
+
+    public static final By submitButton = LocatorUtils.getButtonByText("Submit");
+
+    public static final By formSubmittedMessage = LocatorUtils.getElementByText("Thanks for submitting the form");
 }

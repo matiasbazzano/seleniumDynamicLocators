@@ -1,5 +1,6 @@
 package pom;
 
+import enums.ElementType;
 import org.openqa.selenium.By;
 import utils.LocatorUtils;
 
@@ -12,7 +13,7 @@ public class ElementsPO {
 
     public static final By currentAddressTextArea = LocatorUtils.getTextAreaByPlaceholder("Current Address");
 
-    public static final By permanentAddressTextArea = LocatorUtils.getElementByLabelAndType("Permanent Address", "textarea");
+    public static final By permanentAddressTextArea = LocatorUtils.getElementByLabelAndType("Permanent Address", ElementType.TEXTAREA);
 
     public static final By submitButton = LocatorUtils.getButtonByText("Submit");
 

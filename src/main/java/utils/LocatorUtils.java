@@ -1,6 +1,7 @@
 package utils;
 
 import org.openqa.selenium.By;
+import enums.ElementType;
 
 public class LocatorUtils {
 
@@ -20,23 +21,25 @@ public class LocatorUtils {
         return By.xpath("//textarea[@placeholder='" + placeholder + "']");
     }
 
-    public static By getElementByLabelAndType(String labelText, String elementType) {
+    public static By getElementByLabelAndType(String labelText, ElementType elementType) {
         String xpath = "//label[text()='" + labelText + "']";
-        switch (elementType.toLowerCase()) {
-            case "input":
+        switch (elementType) {
+            case INPUT:
                 return By.xpath(xpath + "/following::input[1]");
-            case "button":
+            case BUTTON:
                 return By.xpath(xpath + "/following::button[1]");
-            case "select":
+            case SELECT:
                 return By.xpath(xpath + "/following::select[1]");
-            case "textarea":
+            case TEXTAREA:
                 return By.xpath(xpath + "/following::textarea[1]");
-            case "checkbox":
+            case CHECKBOX:
                 return By.xpath(xpath + "/following::input[@type='checkbox'][1]");
-            case "radio":
+            case RADIO:
                 return By.xpath(xpath + "/following::input[@type='radio'][1]");
+            case DIV:
+                return By.xpath(xpath + "/following::div[1]");
+            default:
+                throw new IllegalArgumentException("Unsupported ElementType: " + elementType);
         }
-        throw new IllegalArgumentException(elementType);
     }
-
 }
