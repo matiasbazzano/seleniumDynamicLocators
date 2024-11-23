@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
+import pom.HomePO;
 import support.BaseTest;
 
 import java.io.IOException;
@@ -24,6 +25,8 @@ public class FormsTest extends BaseTest {
         homeActions = new HomeActions(driver);
         formsActions = new FormsActions(driver);
         actions.navigateToDemoQAHome();
+        WebElement formsButton = driver.findElement(HomePO.formsButton);
+        actions.scrollToElement(formsButton);
         homeActions.clickFormsButton();
     }
 
@@ -35,5 +38,4 @@ public class FormsTest extends BaseTest {
         WebElement formSubmittedMessage = driver.findElement(FormsPO.formSubmittedMessage);
         Assertions.assertTrue(formSubmittedMessage.isDisplayed(), formSubmittedMessage + " is not visible.");
     }
-
 }

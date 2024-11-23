@@ -3,6 +3,7 @@ package tests;
 import actions.Actions;
 import actions.HomeActions;
 import actions.ElementsActions;
+import pom.HomePO;
 import pom.ElementsPO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,6 +25,8 @@ public class ElementsTest extends BaseTest {
         homeActions = new HomeActions(driver);
         elementsActions = new ElementsActions(driver);
         actions.navigateToDemoQAHome();
+        WebElement elementsButton = driver.findElement(HomePO.elementsButton);
+        actions.scrollToElement(elementsButton);
         homeActions.clickElementsButton();
     }
 

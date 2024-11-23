@@ -20,4 +20,9 @@ public class HomeActions {
         WebElement button = driver.findElement(HomePO.formsButton);
         button.click();
     }
+
+    public void clickAlertsFrameWindowsButton() {
+        WebElement button = driver.findElement(HomePO.alertsFrameWindowsButton);
+        button.click();
+    }
 }

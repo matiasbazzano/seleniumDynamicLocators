@@ -7,4 +7,6 @@ public class HomePO {
     public static final By elementsButton = LocatorUtils.getElementByText("Elements");
 
     public static final By formsButton = LocatorUtils.getElementByText("Forms");
+
+    public static final By alertsFrameWindowsButton = LocatorUtils.getElementByText("Alerts, Frame & Windows");
 }
