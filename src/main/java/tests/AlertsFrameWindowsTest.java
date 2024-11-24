@@ -13,6 +13,7 @@ import support.BaseTest;
 
 import java.util.ArrayList;
 import java.io.IOException;
+import java.util.Set;
 
 public class AlertsFrameWindowsTest extends BaseTest {
     private Actions actions;
@@ -20,10 +21,17 @@ public class AlertsFrameWindowsTest extends BaseTest {
     private AlertsFrameWindowsActions alertsFrameWindowsActions;
     private int oldTabCount;
     private ArrayList<String> tabs;
+    private String originalWindow;
+    private String newWindow;
+    private Set<String> allWindows;
 
     private void updateTabs() {
         tabs = new ArrayList<>(driver.getWindowHandles());
         oldTabCount = tabs.size();
+    }
+
+    private void updateWindow() {
+        originalWindow = driver.getWindowHandle();
     }
 
     @BeforeEach
@@ -48,5 +56,18 @@ public class AlertsFrameWindowsTest extends BaseTest {
         driver.switchTo().window(tabs.getLast());
         WebElement shortMessageLabel = driver.findElement(AlertsFrameWindowsPO.shortMessageLabel);
         Assertions.assertTrue(shortMessageLabel.isDisplayed(), shortMessageLabel + " is not visible.");
+    }
+
+    @Test
+    public void browserWindowsNewWindowMessageTest() {
+        updateWindow();
+        alertsFrameWindowsActions.clickNewWindowMessageButton();
+        allWindows = driver.getWindowHandles();
+        Assertions.assertTrue(allWindows.size() > 1, "A new window did not open");
+        allWindows.remove(originalWindow);
+        newWindow = allWindows.iterator().next();
+        driver.switchTo().window(newWindow);
+        WebElement longMessageLabel = driver.findElement(AlertsFrameWindowsPO.longMessageLabel);
+        Assertions.assertTrue(longMessageLabel.isDisplayed(), longMessageLabel + " is not visible.");
     }
 }
