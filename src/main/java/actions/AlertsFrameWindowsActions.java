@@ -21,8 +21,8 @@ public class AlertsFrameWindowsActions {
         button.click();
     }
 
-    public void clickNewWindowMessageButton() {
-        WebElement button = driver.findElement(AlertsFrameWindowsPO.newWindowMessageButton);
+    public void clickNewWindowButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.newWindowButton);
         button.click();
     }
 }

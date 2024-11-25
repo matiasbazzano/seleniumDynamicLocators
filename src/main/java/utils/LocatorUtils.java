@@ -21,6 +21,11 @@ public class LocatorUtils {
         return By.xpath("//textarea[@placeholder='" + placeholder + "']");
     }
 
+    public static By getElementByTextInBody(String text) {
+        return By.xpath("//body[contains(text(),'" + text + "')]");
+    }
+
+
     public static By getElementByLabelAndType(String labelText, ElementType elementType) {
         String xpath = "//label[text()='" + labelText + "']";
         switch (elementType) {

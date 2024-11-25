@@ -59,15 +59,16 @@ public class AlertsFrameWindowsTest extends BaseTest {
     }
 
     @Test
-    public void browserWindowsNewWindowMessageTest() {
+    public void browserWindowsNewWindowTest() {
         updateWindow();
-        alertsFrameWindowsActions.clickNewWindowMessageButton();
+        alertsFrameWindowsActions.clickBrowserWindowsButton();
+        alertsFrameWindowsActions.clickNewWindowButton();
         allWindows = driver.getWindowHandles();
         Assertions.assertTrue(allWindows.size() > 1, "A new window did not open");
         allWindows.remove(originalWindow);
         newWindow = allWindows.iterator().next();
         driver.switchTo().window(newWindow);
-        WebElement longMessageLabel = driver.findElement(AlertsFrameWindowsPO.longMessageLabel);
-        Assertions.assertTrue(longMessageLabel.isDisplayed(), longMessageLabel + " is not visible.");
+        WebElement shortMessageLabel = driver.findElement(AlertsFrameWindowsPO.shortMessageLabel);
+        Assertions.assertTrue(shortMessageLabel.isDisplayed(), shortMessageLabel + " is not visible.");
     }
 }
