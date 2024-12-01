@@ -26,8 +26,8 @@ public class LocatorUtils {
     }
 
 
-    public static By getElementByLabelAndType(String labelText, ElementType elementType) {
-        String xpath = "//label[text()='" + labelText + "']";
+    public static By getElementByTextAndType(ElementType textElementType, String text, ElementType elementType) {
+        String xpath = "//" + textElementType.getElementTag() + "[text()='" + text + "']";
         switch (elementType) {
             case INPUT:
                 return By.xpath(xpath + "/following::input[1]");

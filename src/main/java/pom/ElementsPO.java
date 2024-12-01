@@ -13,7 +13,7 @@ public class ElementsPO {
 
     public static final By currentAddressTextArea = LocatorUtils.getTextAreaByPlaceholder("Current Address");
 
-    public static final By permanentAddressTextArea = LocatorUtils.getElementByLabelAndType("Permanent Address", ElementType.TEXTAREA);
+    public static final By permanentAddressTextArea = LocatorUtils.getElementByTextAndType(ElementType.LABEL, "Permanent Address", ElementType.TEXTAREA);
 
     public static final By submitButton = LocatorUtils.getButtonByText("Submit");
 

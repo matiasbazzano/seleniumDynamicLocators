@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import pom.HomePO;
 import support.BaseTest;
 
@@ -70,5 +72,67 @@ public class AlertsFrameWindowsTest extends BaseTest {
         driver.switchTo().window(newWindow);
         WebElement shortMessageLabel = driver.findElement(AlertsFrameWindowsPO.shortMessageLabel);
         Assertions.assertTrue(shortMessageLabel.isDisplayed(), shortMessageLabel + " is not visible.");
+    }
+
+    @Test
+    public void alertsSeeAlertTest() {
+        alertsFrameWindowsActions.clickAlertsButton();
+        alertsFrameWindowsActions.clickSeeAlertButton();
+        driverWait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        Assertions.assertTrue(alertText.contains("You clicked a button"), "The expected message is not present in the alert");
+        alert.accept();
+    }
+
+    @Test
+    public void alertsSeeAlertAfterFiveSecondsTest() {
+        alertsFrameWindowsActions.clickAlertsButton();
+        alertsFrameWindowsActions.clickSeeAlertAfterFiveSecondsButton();
+        driverWait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        Assertions.assertTrue(alertText.contains("This alert appeared after 5 seconds"), "The expected message is not present in the alert");
+        alert.accept();
+    }
+
+    @Test
+    public void alertsConfirmBoxOkTest() {
+        alertsFrameWindowsActions.clickAlertsButton();
+        alertsFrameWindowsActions.clickConfirmBoxAlertButton();
+        driverWait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        Assertions.assertTrue(alertText.contains("Do you confirm action?"), "The expected message is not present in the alert");
+        alert.accept();
+        WebElement confirmBoxAlertMessage = driver.findElement(AlertsFrameWindowsPO.alertOkSelectedOptionMessage);
+        Assertions.assertTrue(confirmBoxAlertMessage.isDisplayed(), confirmBoxAlertMessage + " is not visible.");
+    }
+
+    @Test
+    public void alertsConfirmBoxCancelTest() {
+        alertsFrameWindowsActions.clickAlertsButton();
+        alertsFrameWindowsActions.clickConfirmBoxAlertButton();
+        driverWait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        Assertions.assertTrue(alertText.contains("Do you confirm action?"), "The expected message is not present in the alert");
+        alert.dismiss();
+        WebElement confirmBoxAlertMessage = driver.findElement(AlertsFrameWindowsPO.alertCancelSelectedOptionMessage);
+        Assertions.assertTrue(confirmBoxAlertMessage.isDisplayed(), confirmBoxAlertMessage + " is not visible.");
+    }
+
+    @Test
+    public void alertsPromptBoxTest() {
+        alertsFrameWindowsActions.clickAlertsButton();
+        alertsFrameWindowsActions.clickPromptBoxAlertButton();
+        driverWait.until(ExpectedConditions.alertIsPresent());
+        Alert alert = driver.switchTo().alert();
+        String alertText = alert.getText();
+        Assertions.assertTrue(alertText.contains("Please enter your name"), "The expected message is not present in the alert");
+        alert.sendKeys("Matias");
+        alert.accept();
+        WebElement alertPromptBoxMessage = driver.findElement(AlertsFrameWindowsPO.alertPromptBoxMessage);
+        Assertions.assertTrue(alertPromptBoxMessage.isDisplayed(), alertPromptBoxMessage + " is not visible.");
     }
 }

@@ -25,4 +25,29 @@ public class AlertsFrameWindowsActions {
         WebElement button = driver.findElement(AlertsFrameWindowsPO.newWindowButton);
         button.click();
     }
+
+    public void clickAlertsButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.alertsButton);
+        button.click();
+    }
+
+    public void clickSeeAlertButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.seeAlertButton);
+        button.click();
+    }
+
+    public void clickSeeAlertAfterFiveSecondsButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.seeAlertAfterFiveSecondsButton);
+        button.click();
+    }
+
+    public void clickConfirmBoxAlertButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.seeAlertWithConfirmBoxButton);
+        button.click();
+    }
+
+    public void clickPromptBoxAlertButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.alertPromptBoxAlertButton);
+        button.click();
+    }
 }

@@ -8,11 +8,14 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.Dimension;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.IOException;
+import java.time.Duration;
 
 public class BaseTest {
     protected WebDriver driver;
+    protected WebDriverWait driverWait;
     protected String BROWSER;
     protected String CHROME_DRIVER_KEY;
     protected String CHROME_DRIVER_PATH;
@@ -43,6 +46,7 @@ public class BaseTest {
                 break;
         }
         driver.manage().window().setSize(new Dimension(1280, 1024));
+        driverWait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @AfterEach

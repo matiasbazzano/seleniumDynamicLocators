@@ -17,9 +17,9 @@ public class FormsPO {
 
     public static final By mobileNumberInput = LocatorUtils.getInputByPlaceholder("Mobile Number");
 
-    public static final By currentAddressTextArea = LocatorUtils.getElementByLabelAndType("Current Address", ElementType.TEXTAREA);
+    public static final By currentAddressTextArea = LocatorUtils.getElementByTextAndType(ElementType.LABEL, "Current Address", ElementType.TEXTAREA);
 
-    public static final By stateSelect = LocatorUtils.getElementByLabelAndType("State and City", ElementType.DIV);
+    public static final By stateSelect = LocatorUtils.getElementByTextAndType(ElementType.LABEL, "State and City", ElementType.DIV);
 
     public static final By ncrStateSelectOption = LocatorUtils.getElementByText("NCR");
 
