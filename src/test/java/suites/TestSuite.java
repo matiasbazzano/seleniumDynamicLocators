@@ -8,12 +8,11 @@ import tests.FormsTest;
 import tests.AlertsFrameWindowsTest;
 import tests.WidgetsTest;
 
-    @Suite
-    @SelectClasses({
-            ElementsTest.class,
-            FormsTest.class,
-            AlertsFrameWindowsTest.class,
-            WidgetsTest.class
-    })
-
+@Suite
+@SelectClasses({
+        ElementsTest.class,
+        FormsTest.class,
+        AlertsFrameWindowsTest.class,
+        WidgetsTest.class
+})
 public class TestSuite { }
