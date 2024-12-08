@@ -28,4 +28,12 @@ public class AlertsFrameWindowsPO {
     public static final By alertPromptBoxAlertButton = LocatorUtils.getElementByTextAndType(ElementType.SPAN, "On button click, prompt box will appear", ElementType.BUTTON);
 
     public static final By alertPromptBoxMessage = LocatorUtils.getElementByText("Matias");
+
+    public static final By modalDialogsButton = LocatorUtils.getElementByText("Modal Dialogs");
+
+    public static final By smallModalButton = LocatorUtils.getButtonByText("Small modal");
+
+    public static final By largeModalButton = LocatorUtils.getButtonByText("Large modal");
+
+    public static final By closeModalButton = LocatorUtils.getButtonByText("Close");
 }

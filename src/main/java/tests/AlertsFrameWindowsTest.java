@@ -135,4 +135,21 @@ public class AlertsFrameWindowsTest extends BaseTest {
         WebElement alertPromptBoxMessage = driver.findElement(AlertsFrameWindowsPO.alertPromptBoxMessage);
         Assertions.assertTrue(alertPromptBoxMessage.isDisplayed(), alertPromptBoxMessage + " is not visible.");
     }
+
+    @Test
+    public void modalDialogsTest() {
+        alertsFrameWindowsActions.clickModalDialogsButton();
+        alertsFrameWindowsActions.clickSmallModalButton();
+        WebElement closeSmallModalButton = driver.findElement(AlertsFrameWindowsPO.closeModalButton);
+        driverWait.until(ExpectedConditions.elementToBeClickable(closeSmallModalButton));
+        Assertions.assertTrue(closeSmallModalButton.isDisplayed(), closeSmallModalButton + " is not visible.");
+        alertsFrameWindowsActions.clickCloseModalButton();
+        WebElement smallModalButton = driver.findElement(AlertsFrameWindowsPO.smallModalButton);
+        driverWait.until(ExpectedConditions.elementToBeClickable(smallModalButton));
+        alertsFrameWindowsActions.clickLargeModalButton();
+        WebElement closeLargeModalButton = driver.findElement(AlertsFrameWindowsPO.closeModalButton);
+        driverWait.until(ExpectedConditions.elementToBeClickable(closeLargeModalButton));
+        Assertions.assertTrue(closeLargeModalButton.isDisplayed(), closeLargeModalButton + " is not visible.");
+        alertsFrameWindowsActions.clickCloseModalButton();
+    }
 }

@@ -9,6 +9,10 @@ public class LocatorUtils {
         return By.xpath("//*[text()='" + text + "']");
     }
 
+    public static By getElementByPartialText(String text) {
+        return By.xpath("//*[contains(text(),'" + text + "')]");
+    }
+
     public static By getButtonByText(String buttonText) {
         return By.xpath("//button[text()='" + buttonText + "']");
     }

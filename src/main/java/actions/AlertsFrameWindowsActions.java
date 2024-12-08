@@ -50,4 +50,24 @@ public class AlertsFrameWindowsActions {
         WebElement button = driver.findElement(AlertsFrameWindowsPO.alertPromptBoxAlertButton);
         button.click();
     }
+
+    public void clickModalDialogsButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.modalDialogsButton);
+        button.click();
+    }
+
+    public void clickSmallModalButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.smallModalButton);
+        button.click();
+    }
+
+    public void clickLargeModalButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.largeModalButton);
+        button.click();
+    }
+
+    public void clickCloseModalButton() {
+        WebElement button = driver.findElement(AlertsFrameWindowsPO.closeModalButton);
+        button.click();
+    }
 }
