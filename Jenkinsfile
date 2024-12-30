@@ -13,11 +13,25 @@ pipeline {
             }
         }
 
+        stage('Install JDK 17') {
+            steps {
+                script {
+                    echo "Installing JDK 17"
+                    sh '''
+                    sudo apt update
+                    sudo apt install -y openjdk-17-jdk
+                    '''
+                }
+            }
+        }
+
         stage('Setup Java') {
             steps {
                 script {
                     echo "Setting up Java version"
                     sh 'java -version'
+                    sh 'export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which javac))))'
+                    echo "JAVA_HOME is set to: $JAVA_HOME"
                 }
             }
         }
